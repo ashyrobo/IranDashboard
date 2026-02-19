@@ -3,15 +3,47 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Updates</title>
+    <title>My Site</title>
+    <style>
+      :root { --rail: 380px; --gap: 16px; }
+      body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
+      .layout { display: grid; grid-template-columns: var(--rail) 1fr; gap: var(--gap); padding: var(--gap); align-items: start; }
+      .rail {
+        position: sticky; top: var(--gap);
+        height: calc(100vh - (var(--gap) * 2));
+        overflow: hidden;
+        border: 1px solid #e5e7eb; border-radius: 14px; background: #fff;
+      }
+      .railHead { padding: 12px; border-bottom: 1px solid #e5e7eb; font-weight: 600; }
+      .railBody { height: calc(100% - 49px); overflow-y: auto; padding: 12px; }
+      .main { min-height: 200vh; border: 1px solid #e5e7eb; border-radius: 14px; padding: 16px; background: #fff; }
+      @media (max-width: 900px){ .layout{ grid-template-columns: 1fr; } .rail{ position: relative; height: auto; } .railBody{ height:auto; } }
+    </style>
   </head>
-  <body>
-    <h1>Updates</h1>
 
-    <!-- Tweet embeds (paste more blockquotes below) -->
-    <blockquote class="twitter-tweet">
-      <a href="https://twitter.com/TwitterDev/status/1228393702244134912"></a>
-    </blockquote>
+  <body>
+    <div class="layout">
+      <aside class="rail">
+        <div class="railHead">Live posts — @Osint613</div>
+        <div class="railBody">
+          <a class="twitter-timeline"
+             href="https://twitter.com/Osint613"
+             data-height="900"
+             data-chrome="noheader nofooter">
+            Posts by @Osint613
+          </a>
+
+          <noscript>
+            <p><a href="https://twitter.com/Osint613">View on X</a></p>
+          </noscript>
+        </div>
+      </aside>
+
+      <main class="main">
+        <h1>Your content</h1>
+        <p>Whatever you want on the right…</p>
+      </main>
+    </div>
 
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   </body>
